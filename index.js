@@ -16,10 +16,15 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
+function dosyaAdiniBul(path) {
   // kodlar buraya
+  if (!path) {
+    return "";
+  }
+  let kesme = path.split("/").pop();
+  return kesme;
 }
-
+//console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"));
 /*
   GÖREV 2
   - Input:  Bir sayı arrayini parametre olarak alacak bir fonksiyon oluştur.
@@ -38,14 +43,21 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
+function ortalamaBul(arr) {
   // kodlar buraya
+  if (arr.length === 0) {
+    return null;
+  }
+  let toplam = arr.reduce((total, num) => total + num, 0);
+  let sonuc = toplam / arr.length;
+  return sonuc;
 }
-
+//console.log(ortalamaBul([50, -26, 153, 7]));
 /*
   GÖREV 3
   - Input:  Bir sayı arrayini ve ortalama bulmaya yarayacak bir fonksiyonu parametre olarak alacak bir fonksiyon oluştur.
-  - Output: Yazacağın fonksiyon input olarak aldığı sayı arrayinin aritmetik ortalamasından büyük ya da eşit elemanlardan oluşan bir array dönmeli.
+  - Output: Yazacağın fonksiyon input olarak aldığı sayı arrayinin aritmetik ortalamasından büyük ya da 
+  eşit elemanlardan oluşan bir array dönmeli.
   * Çağırırken kendi ortalama fonksiyonunla çağırabilirsin, ama parametrenin tanımlama aşamasında soyut bir ifade olduğunu unutma.
   * f(x) = 2x+5 içerisindeki x değeri gibi.
 
@@ -62,8 +74,19 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
+function ortalamadanBuyukleriBul(arr, ortalamaBul) {
   // kodlar buraya
+  if (arr.length === 0) {
+    return null;
+  }
+  let ortalama = ortalamaBul(arr);
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] >= ortalama) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
 }
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
